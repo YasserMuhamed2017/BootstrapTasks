@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="500" height="300" style="border:1px solid black;"></canvas>
+    <script>
+        var canvas = document.getElementById('myCanvas')
+        var context = canvas.getContext('2d')
+
+        let x = 0;
+        let y = 0;
+
+        const inteval = setInterval(() => {
+            context.beginPath()
+            context.moveTo(0,0)
+            context.lineTo(x, y)
+            context.lineWidth = 5
+            context.strokeStyle = 'red'
+            context.stroke()
+
+            x += 10;  
+            y += 6;  
+            if (x > 500 || y > 300) {
+                alert("animation end.")
+                clearInterval(interval);
+            }
+        }, 1000);
+        
+    </script>
+</body>
+</html>
